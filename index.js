@@ -45,6 +45,7 @@ const httpServer = http.createServer(async (request, response) => {
       break;
     case "OPTIONS":
       response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS");
+      response.setHeader("Access-Control-Allow-Headers", "*");
       response.setHeader("Access-Control-Allow-Origin", "*");
       response.setHeader("Access-Control-Max_age", "86400");
         return response.end(
