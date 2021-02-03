@@ -38,13 +38,15 @@ const httpServer = http.createServer(async (request, response) => {
 
   switch (request.method) {
     case "GET":
+        response.statusCode = 500;
         return response.end(
           JSON.stringify({ error: true, message: "no-get", received: body })
         );
       break;
     case "OPTIONS":
-      response.setHeader("Access-Control-Allow-Methods","POST, OPTIONS");
+      response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS");
       response.setHeader("Access-Control-Allow-Origin", "*");
+      response.setHeader("Access-Control-Max_age", "86400");
         return response.end(
           JSON.stringify({ error: false, message: "cors" })
         );
