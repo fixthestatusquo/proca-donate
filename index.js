@@ -9,7 +9,7 @@ const paymentIntent = async (param) => {
   const r= await stripe.paymentIntents.create({
     amount: param.amount *100 || 404,
     currency: (param.currency && param.currency.toLowerCase()) || 'eur',
-  payment_method_types: ['card'],
+  payment_method_types: param.payment_method_types || ['card'],
 });
   console.log(r);
   if (r.client_secret)
@@ -35,6 +35,22 @@ const httpServer = http.createServer(async (request, response) => {
       }
     });
   };
+
+  switch (request.method) {
+    case "GET":
+        return response.end(
+          JSON.stringify({ error: true, message: "no-get", received: body })
+        );
+      break;
+    case "OPTION":
+      response.setHeader("Access-Control-Allow-Origin", "*");
+        return response.end(
+          JSON.stringify({ error: false, message: "cors" })
+        );
+      break;
+    default:
+  }
+
 
   const parsedUrl = url.parse(request.url, true);
   response.setHeader("Content-Type", "application/json");
