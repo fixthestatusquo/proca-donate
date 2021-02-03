@@ -1,0 +1,7 @@
+{
+  "name": "Proca stripe interface",
+  "description": "A barebone stripe interface",
+  "repository": "https://github.com/tttp/proca-payment",
+  "keywords": ["node", "stripe"],
+  "image": "heroku/nodejs"
+}

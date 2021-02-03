@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "stripe": "^8.132.0"
+  }
+}
