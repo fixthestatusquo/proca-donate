@@ -38,7 +38,7 @@ const httpServer = http.createServer(async (request, response) => {
 
   const parsedUrl = url.parse(request.url, true);
   response.setHeader("Content-Type", "application/json");
-
+  response.header("Access-Control-Allow-Origin", "*");
   switch (parsedUrl.path) {
     case "/stripe/oneoff":
       let data = null;
