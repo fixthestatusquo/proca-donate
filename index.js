@@ -12,7 +12,9 @@ const paymentIntent = async (param) => {
   payment_method_types: ['card'],
 });
   console.log(r);
-  return r;
+  if (r.client_secret)
+    return {"secret":r.client_secret};
+  return {};
 };
 
 const httpServer = http.createServer(async (request, response) => {
