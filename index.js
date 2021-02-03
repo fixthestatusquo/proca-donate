@@ -42,9 +42,8 @@ const httpServer = http.createServer(async (request, response) => {
           JSON.stringify({ error: true, message: "no-get", received: body })
         );
       break;
-    case "OPTION":
+    case "OPTIONS":
       response.setHeader("Access-Control-Allow-Origin", "*");
-      response.statusCode = 200;
         return response.end(
           JSON.stringify({ error: false, message: "cors" })
         );
