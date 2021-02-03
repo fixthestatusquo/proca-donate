@@ -4,8 +4,12 @@ require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
-const paymentIntent = async (param) => {
-  
+const paymentIntent = async (param,referer) => {
+  // TODO: reject if actionPage missing?
+  param.meta = {
+    actionPage: param.actionPage || "?",
+    referer: referer
+  };
   const r= await stripe.paymentIntents.create({
     amount: param.amount *100 || 404,
     currency: (param.currency && param.currency.toLowerCase()) || 'eur',
@@ -44,12 +48,12 @@ const httpServer = http.createServer(async (request, response) => {
         );
       break;
     case "OPTIONS":
-      response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS");
+      response.setHeader("Access-Control-Allow-Methods","POST, OPTIONS");
       response.setHeader("Access-Control-Allow-Headers", "*");
       response.setHeader("Access-Control-Allow-Origin", "*");
       response.setHeader("Access-Control-Max_age", "86400");
         return response.end(
-          JSON.stringify({ error: false, message: "cors" })
+          JSON.stringify({ message: "cors set" })
         );
       break;
     default:
@@ -71,7 +75,7 @@ const httpServer = http.createServer(async (request, response) => {
           JSON.stringify({ error: true, message: "no-json", received: body })
         );
       }
-      response.end(JSON.stringify(await paymentIntent(data)));
+      response.end(JSON.stringify(await paymentIntent(data,request.headers.referer)));
       break;
     default:
       response.statusCode = 404;
