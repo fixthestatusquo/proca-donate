@@ -17,7 +17,6 @@ A simple server side API for processing donations with Stripe.
   PROCA_DONATE_CORS_DOMAINS=[ list of domains to allow ]
 
   STRIPE_SECRET=...
-  STRIPE_SECRET_TEST=...
 
 1. Run donate.js
 
