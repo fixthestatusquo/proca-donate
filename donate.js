@@ -3,7 +3,7 @@ const url = require("url");
 require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
-const allowed_origins = new Set(process.env.PROCA_DONATE_CORS_DOMAINS.split(';').filter(x => x !== ''));
+const allowed_origins = new Set(process.env.PROCA_DONATE_CORS_DOMAINS.split(',').filter(x => x !== ''));
 
 // log(`CORS DOMAINS ${allowed_origins.keys()}`);
 // log(`allowed_origins ${allowed_origins.has("http")}`);
