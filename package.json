@@ -3,8 +3,13 @@
     "dotenv": "^8.2.0",
     "stripe": "^8.139.0"
   },
+  "peerDependencies": {
+    "nodemon": "latest",
+    "pm2": "latest"
+  },
   "main": "donate.js",
   "scripts": {
-    "start": "nodemon donate.js"
+    "dev": "nodemon donate.js",
+    "start": "node donate.js"
   }
 }

@@ -12,11 +12,9 @@ A simple server side API for processing donations with Stripe.
 1. npm install
 
 1. Configure environment in .env
+  cp .env.example .env
 
-  PROCA_DONATE_PORT=4000
-  PROCA_DONATE_CORS_DOMAINS=[ list of domains to allow ]
-
-  STRIPE_SECRET=...
+The two params you need to set are the domains allowed to make donations and the stripe secret (from your stripe dashboard)
 
 1. Run donate.js
 
@@ -28,7 +26,7 @@ Requests should be JSON, responses are JSON.
 
 ## OPTIONS /
 
-Pre-flight requests - will return 401 unless the Origin in congfigured in PROCA_DONATE_CORS_DOMAINS.
+Pre-flight requests - will return 401 unless the Origin is one configured in PROCA_DONATE_CORS_DOMAINS.
 
 ## POST /stripe/oneoff
 
