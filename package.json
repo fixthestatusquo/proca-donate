@@ -3,8 +3,8 @@
     "dotenv": "^8.2.0",
     "stripe": "^8.139.0"
   },
-   "main": "index.js",
+  "main": "donate.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon donate.js"
   }
 }
