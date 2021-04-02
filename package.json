@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "dotenv": "^8.2.0",
-    "stripe": "^8.139.0"
+    "stripe": "^8.141.0"
   },
   "peerDependencies": {
     "nodemon": "latest",
