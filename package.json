@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "stripe": "^8.148.0"
   },
   "peerDependencies": {
