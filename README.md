@@ -36,4 +36,17 @@ allowed parameters. The most important are:
  - amount
  - currency
 
+# POST /stripe/recurring
 
+https://stripe.com/docs/billing/subscriptions/overview
+https://stripe.com/docs/billing/subscriptions/fixed-price
+
+This api wraps multiple apis
+- customer
+- ? price
+- subscription
+
+the product needs to be created in advance, eg "donation", and its id saved in the config of the widget, eg "prod_IpXkCCEdTaJE6X"
+
+- product
+- price 

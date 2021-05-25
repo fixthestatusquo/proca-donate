@@ -3,7 +3,12 @@ const url = require("url");
 require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
-const allowed_origins = new Set(process.env.PROCA_DONATE_CORS_DOMAINS.split(',').filter(x => x !== ''));
+const allowed_origins = process.env.PROCA_DONATE_CORS_DOMAINS 
+  ? new Set(process.env.PROCA_DONATE_CORS_DOMAINS.split(',').filter(x => x !== ''))
+  : true;
+
+if (!process.env.PROCA_DONATE_CORS_DOMAINS)
+  console.warn ('PROCA_DONATE_CORS_DOMAINS is empty, accepting donations from any domain' );
 
 // log(`CORS DOMAINS ${allowed_origins.keys()}`);
 // log(`allowed_origins ${allowed_origins.has("http")}`);
@@ -32,8 +37,8 @@ const paymentIntent = async (request, param) => {
 };
 
 const checkOrigin = (request) => {
+  if (allowed_origins === true) return true;
   let origin = request.headers['origin'];
-
   return allowed_origins.has(origin);
 }
 const corsResponse = (request, response) => {
