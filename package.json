@@ -1,7 +1,9 @@
 {
+  "name": "@proca/donate",
+  "version": "0.1.0",
   "dependencies": {
-    "dotenv": "^9.0.0",
-    "stripe": "^8.148.0"
+    "dotenv": "^9.0.2",
+    "stripe": "^8.149.0"
   },
   "peerDependencies": {
     "nodemon": "latest",
