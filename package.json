@@ -2,7 +2,7 @@
   "name": "@proca/donate",
   "version": "0.1.0",
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^11.0.0",
     "stripe": "^8.195.0"
   },
   "peerDependencies": {
