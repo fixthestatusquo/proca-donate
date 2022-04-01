@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "dotenv": "^16.0.0",
-    "stripe": "^8.208.0"
+    "stripe": "^8.214.0"
   },
   "peerDependencies": {
     "nodemon": "latest",
