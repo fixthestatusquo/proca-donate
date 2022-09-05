@@ -1,3 +1,5 @@
+The features of this microservice have been merged back into proca-server, please don't use this repository
+
 # [Proca - progressive campaigning](https://proca.foundation) Donation Micro-service
 
 A simple server side API for processing donations with Stripe.
